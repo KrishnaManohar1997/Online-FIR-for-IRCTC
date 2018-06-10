@@ -17,13 +17,11 @@ public class Complaint {
     public static void sendMessage(String mno, int tnum, String tname, String aplName, String toc, long mobno) throws ClassNotFoundException, SQLException {
         try {
             String retval = "";
-            String Username = "becb-becoff";
-            String Password = "becoff";
             String MobileNo = mno;
             String Message = "Compliace About : " + toc + "\nHappened in Train " + tnum + "  " + tname + "\n Applicant Details are : " + aplName + "\n Mobile Number :" + mobno;
-            String SenderID = "BECOFF";
+            
             String postData = "username=" + Username + "&password=" + Password + "&type=0&dlr=1&destination=" + MobileNo + "&source=" + SenderID + "&message=" + Message;
-            URL url = new URL("http://103.16.101.52:8080/sendsms/bulksms?");
+    
             HttpURLConnection urlconnection = (HttpURLConnection) url.openConnection();
             urlconnection.setRequestMethod("POST");
             urlconnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
